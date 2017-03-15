@@ -1,13 +1,14 @@
 package sample.view.game;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import sample.model.SchuifpuzzelModel;
 
-/**
- * Created by Gebruiker on 12-3-2017.
- */
-public class GameView extends GridPane {
-    private Button button;
+public class GameView extends BorderPane {
+    private Label hasToBeReplacedByTimer;
+    private GridPane gridPane;
 
     public GameView() {
         initialiseNodes();
@@ -15,10 +16,20 @@ public class GameView extends GridPane {
     }
 
     private void initialiseNodes() {
-        this.button = new Button("oi");
+        hasToBeReplacedByTimer = new Label("missing");
+        gridPane = new SchuifpuzzelModel().makingImageViewGrid();
     }
 
     private void layoutNodes() {
-        this.getChildren().add(button);
+        setTop(hasToBeReplacedByTimer);
+        setCenter(gridPane);
+    }
+
+    GridPane getGridPane() {
+        return gridPane;
+    }
+
+    Button getButton(int index) {
+        return (Button) getGridPane().getChildren().get(index);
     }
 }
