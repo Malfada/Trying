@@ -45,7 +45,9 @@ public class SchuifpuzzelModel {
             for(int column = 0; column < this.dimension; column++) {
                 int currentElement = randomizedArrayList.get(indexOfCurrentElement);
                 String url = String.format(dir, currentElement);
-                Button tempButton = new Button("", new ImageView(new Image(url))) ;
+                boolean isEmptyImage = url.equals("sample/view/images/spel1/nr_4.gif");
+                PuzzleButton tempButton = new PuzzleButton("", new ImageView(new Image(url)), isEmptyImage);
+                //now just do tempButton.isEmptyImage() to check if it is the empty image
                 gridPane.add(tempButton, column , row);
                 buttonList.add(tempButton);
                 if(currentElement == 4) {               //if white picture set hole = index of the picture
