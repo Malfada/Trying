@@ -1,5 +1,6 @@
 package sample.model;
 
+import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -82,8 +83,11 @@ public class SchuifpuzzelModel {
         }
     }
 
-    public void move(int indexOfButton) {
+    public void move(ObservableList observableList,int indexOfButton) {
         Collections.swap(randomizedArrayList, indexOfButton, hole);
 
+        Collections.swap(observableList, indexOfButton, hole);
+
+        this.hole = indexOfButton;
     }
 }
